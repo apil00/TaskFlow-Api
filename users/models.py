@@ -15,6 +15,9 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_("The Email must be set"))
 
+        first_name = extra_fields.pop('first_name')
+        last_name = extra_fields.pop('last_name')
+
         email = self.normalize_email(email)
         user = self.model(
             email=email,
