@@ -32,13 +32,10 @@ class LoginSerializer(serializers.Serializer):
         email = data.get('email')
         password = data.get('password')
 
-        if not email and not password:
-            raise serializers.ValidationError("Email and Password are required.")
-
         user = authenticate(email=email, password=password)
 
         if not user:
             raise serializers.ValidationError("Invalid Credentials.")
 
-        data['user']=user
+        data['user'] = user
         return data
