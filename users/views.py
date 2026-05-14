@@ -20,8 +20,17 @@ class LoginView(APIView):
         if serializer.is_valid():
             user = serializer.validated_data['user']
 
-            token, create = Token.objects.get_or_create(user=user)
+            token, created = Token.objects.get_or_create(user=user)
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response({
+                'token': token.key,
+                'user': {
+                    'email': email,
+                    'first_name': first_name,
+                    'last_name': last_name
+                }
+            },
+                status=status.HTTP_200_OK
+            )
         
         return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
