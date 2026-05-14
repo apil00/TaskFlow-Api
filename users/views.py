@@ -24,9 +24,9 @@ class LoginView(APIView):
             return Response({
                 'token': token.key,
                 'user': {
-                    'email': email,
-                    'first_name': first_name,
-                    'last_name': last_name
+                    'email': user.email,
+                    'first_name': user.first_name,
+                    'last_name': user.last_name
                 }
             },
                 status=status.HTTP_200_OK
