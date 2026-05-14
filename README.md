@@ -47,33 +47,35 @@ API endpoints:
 
 # Register -> Post
 request body:
-{
-  "email": "john@example.com",
-  "password": "strongpassword123",
-  "first_name": "John",
-  "last_name": "Doe"
-}
+    ```bash
+    {
+    "email": "john@example.com",
+    "password": "strongpassword123",
+    "first_name": "John",
+    "last_name": "Doe"
+    }
 
-Response(201 Created)
-{
-  "email": "john@example.com",
-  "first_name": "John",
-  "last_name": "Doe"
-}
+    Response(201 Created)
+    {
+    "email": "john@example.com",
+    "first_name": "John",
+    "last_name": "Doe"
+    }
 
 # Login -> Post
 request body:
-{
-  "email": "john@example.com",
-  "password": "strongpassword123"
-}
-
-Response (200 OK)
-{
-    "token": "generated_token",
-    "user": {
-        "email": "john@example.com",
-        "first_name": "Jhon",
-        "last_name": "Doe"
+    ```bash
+    {
+    "email": "john@example.com",
+    "password": "strongpassword123"
     }
-}
+
+    Response (200 OK)
+    {
+        "token": "generated_token",
+        "user": {
+            "email": "john@example.com",
+            "first_name": "Jhon",
+            "last_name": "Doe"
+        }
+    }
