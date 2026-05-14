@@ -12,29 +12,35 @@ TaskFlow is a project management and team productivity tool.
    ```bash
    git clone https://github.com/apil00/TaskFlow-Api.git
    cd TaskFlow-Api
+   ```
 
 2. Create and activate virtual environment
     ```bash
     python -m venv venv
     venv\Scripts\activate # window
     source venv/bin/activate #macOS/linux
+    ```
 
 3. Install dependencies
     ```bash
     pip install -r requirements.txt
+    ```
 
 4. Set up environment variables
     ```bash
     cp .env.example .env
     # edit .env with your values
+    ```
 
 5. Run migrations
     ```bash
     python manage.py migrate
+    ```
 
 6. start the server
     ```bash
     python manage.py runserver
+    ```
 
 
 API endpoints:
@@ -47,30 +53,35 @@ API endpoints:
 
 # Register -> Post
 request body:
-    ```bash
+    ```json
     {
     "email": "john@example.com",
     "password": "strongpassword123",
     "first_name": "John",
     "last_name": "Doe"
     }
+    ```
 
     Response(201 Created)
+    ```json
     {
     "email": "john@example.com",
     "first_name": "John",
     "last_name": "Doe"
     }
+    ```
 
 # Login -> Post
 request body:
-    ```bash
+    ```json
     {
     "email": "john@example.com",
     "password": "strongpassword123"
     }
+    ```
 
     Response (200 OK)
+    ```json
     {
         "token": "generated_token",
         "user": {
@@ -79,3 +90,4 @@ request body:
             "last_name": "Doe"
         }
     }
+    ```
